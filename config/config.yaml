@@ -1,0 +1,54 @@
+# Конфигурация для IMAP (использует .env)
+imap:
+  host: "imap.zoho.eu"
+  port: 993
+  username: "${ZOHO_EMAIL}"
+  password: "${ZOHO_APP_PASSWORD}"
+  folder: "INBOX"
+  filters:
+    days_back: 30
+  timeout: 30
+  ssl: true
+
+# Конфигурация для Excel
+excel:
+  path: "${EXCEL_FILE_PATH}"
+  columns:
+    url: "url"
+    status: "Статус"
+    price_usd: "Price usd"
+    price_usd_casino: "Price\nusd\ncasino"
+    mail: "Mail"
+    payment: "Payment"
+    date: "Date"
+    geo_ahrefs_top_1: "Geo Ahrefs top 1"
+    language: "Language"
+    dr: "DR"
+    organic_traffic: "Organic Traffic"
+    backlinks: "Backlinks"
+    organic_keywords: "Organic Keywords"
+    majestic_tf: "Majestic TF"
+    majestic_cf: "Majestic CF"
+    tf_cf: "TF/CF"
+    important_info: "???"
+    comments: "Comments"
+  target_columns: ["price_usd", "price_usd_casino", "important_info", "comments"]
+  backup:
+    enabled: true
+    keep_days: 7
+
+lm_studio:
+  host: "localhost"
+  port: 1234
+  model: "qwen3-8b"
+  version: "0.3.16"  # Версия должна быть именно такой
+  timeout: 30
+  max_tokens: 2000
+  temperature: 0.7
+
+
+# Настройки логирования
+logging:
+  level: "INFO"
+  max_size: 1048576  # 1MB
+  backup_count: 5
